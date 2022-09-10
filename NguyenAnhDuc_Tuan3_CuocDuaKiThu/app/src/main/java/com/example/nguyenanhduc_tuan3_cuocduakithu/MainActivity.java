@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 int one = random.nextInt(number);
                 int two = random.nextInt(number);
                 int three = random.nextInt(number);
-            //Kiem tra ve dich
+                //Kiem tra One ve dich
                 if (skOne.getProgress()>=skOne.getMax()){
                     this.cancel();
                     ibtnPlay.setVisibility(View.VISIBLE);
@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     txtDiem.setText(soDiem + "");
                     EnableCheckBox();
                 }
+                //Kiem tra Two ve dich
                 if (skTwo.getProgress()>=skTwo.getMax()){
                     this.cancel();
                     ibtnPlay.setVisibility(View.VISIBLE);
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     txtDiem.setText(soDiem + "");
                     EnableCheckBox();
                 }
+                //Kiem tra Three ve dich
                 if (skThree.getProgress()>=skThree.getMax()){
                     this.cancel();
                     ibtnPlay.setVisibility(View.VISIBLE);

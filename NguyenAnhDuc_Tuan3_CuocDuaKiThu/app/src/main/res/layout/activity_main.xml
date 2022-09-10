@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/racer"
+        android:layout_width="wrap_content"
+        android:layout_height="165dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="65dp"
+        android:layout_marginBottom="18dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/racer" />
+
     <CheckBox
         android:layout_marginBottom="24dp"
         android:layout_alignParentBottom="true"
@@ -31,14 +41,15 @@
         android:layout_toRightOf="@id/checkboxThree"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <SeekBar
-        android:progressDrawable="@android:color/transparent"
-        android:thumb="@drawable/yellowdore"
         android:id="@+id/seekbarTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_above="@id/seekbarThree"
         android:layout_toRightOf="@id/checkboxTwo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:progressDrawable="@android:color/transparent"
+        android:thumb="@drawable/yellowdore" />
     <SeekBar
         android:progressDrawable="@android:color/transparent"
         android:thumb="@drawable/dore"
@@ -47,22 +58,33 @@
         android:layout_toRightOf="@id/checkboxOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/TextViewDiemSo"
-        android:layout_margin="10dp"
-        android:textColor="#ff00"
-        android:textStyle="bold"
-        android:textSize="50sp"
-        android:text="100"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="100"
+        android:textColor="#8BC34A"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/logo"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <ImageButton
-        android:background="@null"
         android:id="@+id/buttonPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/play" />
+        android:background="@null"
+        android:src="@drawable/play"
+        tools:ignore="SpeakableTextPresentCheck" />
 </RelativeLayout>
 

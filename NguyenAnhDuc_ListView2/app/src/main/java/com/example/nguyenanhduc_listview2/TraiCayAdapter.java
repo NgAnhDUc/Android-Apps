@@ -56,7 +56,7 @@ public class TraiCayAdapter extends BaseAdapter {
         else{
             holder =(ViewHolder) view.getTag();
         }
-
+// hien
         //gan gia tri
         TraiCay traiCay = traiCaylist.get(i);
 

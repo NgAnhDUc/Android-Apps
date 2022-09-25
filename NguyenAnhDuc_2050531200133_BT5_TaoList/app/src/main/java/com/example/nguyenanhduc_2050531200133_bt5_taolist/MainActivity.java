@@ -11,26 +11,23 @@ public class MainActivity extends AppCompatActivity {
     ListView lvDoAn;
     ArrayList<DoAn> arrayDoAn;
     DoAnAdapter adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Anhxa();
         adapter = new DoAnAdapter(this,R.layout.dong_item,arrayDoAn);
         lvDoAn.setAdapter(adapter);
     }
-
-    private void Anhxa() {
+    private void Anhxa(){
         lvDoAn= (ListView) findViewById(R.id.listviewDoAn);
         arrayDoAn = new ArrayList<>();
 
-        arrayDoAn.add(new DoAn("Bơ xanh", "Bơ Việt Nam", R.drawable.pho, "6"));
-        arrayDoAn.add(new DoAn("Bưởi chua", "Bưởi Việt Nam", R.drawable.nemran, "6"));
-        arrayDoAn.add(new DoAn("Kiwi ngọt", "Kiwi Việt Nam", R.drawable.muchap, "6"));
-        arrayDoAn.add(new DoAn("Táo đỏ", "Táo Việt Nam", R.drawable.goicuon, "6"));
-        arrayDoAn.add(new DoAn("Xoài cát", "Xoài Việt Nam", R.drawable.banhxeo, "6"));
+        arrayDoAn.add(new DoAn("Phở bò", "Phở bò Hà Nội", R.drawable.pho, 6));
+        arrayDoAn.add(new DoAn("Nem rán", "Nem rán Hà Nội", R.drawable.nemran, 6));
+        arrayDoAn.add(new DoAn("Mực hấp", "Mực ống hấp rau củ", R.drawable.muchap, 6));
+        arrayDoAn.add(new DoAn("Gỏi cuốn", "Gỏi cuốn tôm thịt", R.drawable.goicuon, 6));
+        arrayDoAn.add(new DoAn("Bánh xèo", "Bánh xèo miền trung", R.drawable.banhxeo, 6));
 
     }
 }

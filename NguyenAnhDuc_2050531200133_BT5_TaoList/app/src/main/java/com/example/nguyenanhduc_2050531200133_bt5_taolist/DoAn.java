@@ -4,9 +4,9 @@ public class DoAn {
     private String Ten;
     private String Mota;
     private int Hinh;
-    private String Money;
+    private int Money;
 
-    public DoAn(String ten, String mota, int hinh, String money) {
+    public DoAn(String ten, String mota, int hinh, int money) {
         Ten = ten;
         Mota = mota;
         Hinh = hinh;
@@ -25,7 +25,14 @@ public class DoAn {
         return Hinh;
     }
 
-    public String getMoney() {
+    public int getMoney() {
         return Money;
+    }
+
+    public int upMoney(){
+        return Money++;
+    }
+    public int downMoney(){
+        return Money--;
     }
 }

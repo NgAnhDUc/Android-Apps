@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,10 +16,10 @@ public class DoAnAdapter extends BaseAdapter {
     private int layout;
     private List<DoAn> doAnList;
 
-    public DoAnAdapter(Context context, int layout, List<DoAn> traiCaylist) {
+    public DoAnAdapter(Context context, int layout, List<DoAn> doAnList) {
         this.context = context;
         this.layout = layout;
-        this.doAnList =traiCaylist;
+        this.doAnList =doAnList;
     }
 
     @Override
@@ -39,6 +40,7 @@ public class DoAnAdapter extends BaseAdapter {
     public class ViewHolder{
         ImageView imgHinh;
         TextView txtTen, txtMota,txtMoney;
+        Button btntang, btngiam;
     }
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
@@ -52,6 +54,8 @@ public class DoAnAdapter extends BaseAdapter {
             holder.txtMota= (TextView) view.findViewById(R.id.tvMota);
             holder.imgHinh = (ImageView) view.findViewById(R.id.ivHinh);
             holder.txtMoney= (TextView) view.findViewById(R.id.tvMoney);
+            holder.btngiam= (Button) view.findViewById(R.id.btgiam);
+            holder.btntang= (Button )view. findViewById(R.id.bttang);
             view.setTag(holder);
         }
         else{
@@ -63,7 +67,7 @@ public class DoAnAdapter extends BaseAdapter {
         holder.txtTen.setText(doAn.getTen());
         holder.txtMota.setText(doAn.getMota());
         holder.imgHinh.setImageResource(doAn.getHinh());
-        holder.txtMoney.setText(doAn.getMoney());
+        holder.txtMoney.setText( ""+doAn.getMoney());
 
         return view;
     }

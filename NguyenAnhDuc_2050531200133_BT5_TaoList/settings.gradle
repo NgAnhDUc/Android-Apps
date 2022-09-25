@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "NguyenAnhDuc_ListView2"
+rootProject.name = "NguyenAnhDuc_2050531200133_BT5_TaoList"
 include ':app'

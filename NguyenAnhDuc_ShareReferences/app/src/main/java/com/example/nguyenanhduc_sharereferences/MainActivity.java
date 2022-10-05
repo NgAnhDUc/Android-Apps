@@ -17,11 +17,11 @@ public class MainActivity extends AppCompatActivity {
     CheckBox cbReferences;
     SharedPreferences sharedPreferences;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         sharedPreferences=getSharedPreferences("dataLogin",MODE_PRIVATE);
 
         edtUsername.setText(sharedPreferences.getString("taikhoan",""));
@@ -31,24 +31,26 @@ public class MainActivity extends AppCompatActivity {
         btnXacnhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username= edtUsername.getText().toString().trim();
-                String password= edtPassword.getText().toString().trim();
+                    String username= edtUsername.getText().toString().trim();
+                    String password= edtPassword.getText().toString().trim();
 
-                if(username.equals("anhduc")&&password.equals("123"))
-                    Toast.makeText(MainActivity.this,"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
-                    if(cbReferences.isChecked()){
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                       editor.putString("taikhoan",username);
-                        editor.putString("matkhau",password);
-                        editor.putBoolean("checked",true);
-                        editor.commit();
+                    if(username.equals("anhduc")&&password.equals("123")){
+                        Toast.makeText(MainActivity.this,"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
+                        if(cbReferences.isChecked()){
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("taikhoan",username);
+                            editor.putString("matkhau",password);
+                            editor.putBoolean("checked",true);
+                            editor.commit();
+                        }
                     }
-                else
-                    Toast.makeText(MainActivity.this,"Lỗi đăng nhập",Toast.LENGTH_SHORT).show();
-            }
+                    else{
+                        Toast.makeText(MainActivity.this,"Lỗi đăng nhập",Toast.LENGTH_SHORT).show();
+                    }
+                }
+
         });
     }
-
     private void Anhxa() {
         btnXacnhan = (Button) findViewById(R.id.buttonDangnhap);
         edtUsername = (EditText) findViewById(R.id.editTextName);

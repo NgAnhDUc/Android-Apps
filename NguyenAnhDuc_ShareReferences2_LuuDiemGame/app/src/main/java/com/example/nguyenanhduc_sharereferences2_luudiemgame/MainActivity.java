@@ -2,6 +2,7 @@ package com.example.nguyenanhduc_sharereferences2_luudiemgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -21,16 +22,21 @@ public class MainActivity extends AppCompatActivity {
     CheckBox cbOne,cbTwo,cbThree;
     SeekBar skOne,skTwo,skThree;
     int soDiem = 100;
+    SharedPreferences LuuDiemSo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         AnhXa();
         skOne.setEnabled(false);
         skTwo.setEnabled(false);
         skThree.setEnabled(false);
         txtDiem.setText(soDiem + "");
+
+        LuuDiemSo = getSharedPreferences("DiemSoGame",MODE_PRIVATE);
+        soDiem= LuuDiemSo.getInt("diem",100);
 
         CountDownTimer countDownTimer = new CountDownTimer(60000,300) {
             @Override
@@ -77,9 +83,11 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"THREE WIN",Toast.LENGTH_SHORT).show();
                     if (cbThree.isChecked()){
                         soDiem +=10;
+                        LuuDiem();
                         Toast.makeText(MainActivity.this, "Dự đoán chính xác !", Toast.LENGTH_SHORT).show();
                     }else{
                         soDiem -=5;
+                        LuuDiem();
                         Toast.makeText(MainActivity.this, "Dự đoán sai !", Toast.LENGTH_SHORT).show();
                     }
                     txtDiem.setText(soDiem + "");
@@ -153,5 +161,10 @@ public class MainActivity extends AppCompatActivity {
         skOne       = (SeekBar) findViewById(R.id.seekbarOne);
         skTwo       = (SeekBar) findViewById(R.id.seekbarTwo);
         skThree     = (SeekBar) findViewById(R.id.seekbarThree);
+    }
+    private void LuuDiem(){
+        SharedPreferences.Editor editor = LuuDiemSo.edit();
+        editor.putInt("diem",soDiem);
+        editor.commit();
     }
 }

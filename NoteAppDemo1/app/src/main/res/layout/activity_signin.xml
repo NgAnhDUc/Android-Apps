@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SigninActivity"
+    tools:context=".LoginScreen.SigninActivity"
     android:orientation="vertical">
     <LinearLayout
         android:layout_marginTop="100dp"
@@ -31,14 +31,6 @@
             android:layout_height="match_parent"/>
 
         <EditText
-            android:id="@+id/edtUsername2"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:hint="Username"
-            android:minHeight="48dp" />
-
-        <EditText
             android:id="@+id/edtEmail2"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -47,6 +39,7 @@
             android:minHeight="48dp" />
 
         <EditText
+            android:inputType="textPassword"
             android:id="@+id/edtPassword2"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -55,6 +48,7 @@
             android:minHeight="48dp" />
 
         <EditText
+            android:inputType="textPassword"
             android:id="@+id/edtRepeatPw2"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -66,11 +60,17 @@
             android:id="@+id/btRegister"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:layout_width="200dp"
+            android:layout_width="280dp"
             android:layout_height="60dp"
-            android:text="Register"
+            android:text="Create Account"
             android:textStyle="bold"
             android:textSize="20sp"/>
+        <ProgressBar
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:id="@+id/progress_bar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
         <LinearLayout
             android:layout_gravity="center"
             android:layout_width="wrap_content"

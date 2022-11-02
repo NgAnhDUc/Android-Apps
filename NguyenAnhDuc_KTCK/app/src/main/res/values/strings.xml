@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NguyenAnhDuc_KTCK</string>
+    <string name="home_nav">Home</string>
+    <string name="profile_nav">Profile</string>
+    <string name="setting_nav">Setting</string>
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>

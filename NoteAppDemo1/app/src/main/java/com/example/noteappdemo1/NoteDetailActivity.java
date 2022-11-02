@@ -1,11 +1,13 @@
-package com.example.noteappdemo1;
+package com.example.NoteAppDemo1;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -16,6 +18,10 @@ public class NoteDetailActivity extends AppCompatActivity {
 
     EditText TitleEdt,ContentEdt;
     ImageButton SaveNoteBtn;
+    TextView pageTitleTv;
+    TextView deleteNoteBtn;
+    String title,content,docId;
+    boolean isEditmode = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +29,26 @@ public class NoteDetailActivity extends AppCompatActivity {
         TitleEdt = findViewById(R.id.note_title_text);
         ContentEdt = findViewById(R.id.note_content_text);
         SaveNoteBtn = findViewById(R.id.save_note_btn);
+        pageTitleTv = findViewById(R.id.page_title);
+        deleteNoteBtn = findViewById(R.id.delete_note_btn);
+
+        title = getIntent().getStringExtra("title");
+        content = getIntent().getStringExtra("content");
+        docId = getIntent().getStringExtra("docId");
+
+        if(docId!=null && !docId.isEmpty()){
+            isEditmode = true;
+        }
+
+        TitleEdt.setText(title);
+        ContentEdt.setText(content);
+        if (isEditmode){
+            pageTitleTv.setText("Edit your note");
+            deleteNoteBtn.setVisibility(View.VISIBLE);
+        }
 
         SaveNoteBtn.setOnClickListener(view -> saveNote());
+        deleteNoteBtn.setOnClickListener(view -> deleteNoteFireBase());
     }
 
     private void saveNote() {
@@ -43,7 +67,13 @@ public class NoteDetailActivity extends AppCompatActivity {
 
     void saveNoteToFirebase(Note note){
         DocumentReference documentReference;
-        documentReference = Utility.getCollectionReferenceForNote().document();
+        if (isEditmode){
+            documentReference = Utility.getCollectionReferenceForNote().document(docId);
+
+        }else {
+            documentReference = Utility.getCollectionReferenceForNote().document();
+
+        }
         documentReference.set(note).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -52,6 +82,24 @@ public class NoteDetailActivity extends AppCompatActivity {
                     finish();
                 }else {
                     Utility.showToast(NoteDetailActivity.this,"Failed while adding note");
+                    finish();
+                }
+            }
+        });
+    }
+
+    void deleteNoteFireBase(){
+        DocumentReference documentReference;
+            documentReference = Utility.getCollectionReferenceForNote().document(docId);
+
+        documentReference.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Utility.showToast(NoteDetailActivity.this,"Note deleted successfully");
+                    finish();
+                }else {
+                    Utility.showToast(NoteDetailActivity.this,"Failed while deleting note");
                     finish();
                 }
             }

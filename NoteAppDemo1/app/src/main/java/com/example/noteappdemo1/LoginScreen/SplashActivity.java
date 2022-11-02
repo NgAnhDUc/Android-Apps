@@ -1,4 +1,4 @@
-package com.example.noteappdemo1.LoginScreen;
+package com.example.NoteAppDemo1.LoginScreen;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.noteappdemo1.R;
+import com.example.NoteAppDemo1.R;
 
 public class SplashActivity extends AppCompatActivity {
 

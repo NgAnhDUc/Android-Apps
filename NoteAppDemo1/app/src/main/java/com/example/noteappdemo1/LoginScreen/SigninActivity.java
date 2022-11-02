@@ -1,4 +1,4 @@
-package com.example.noteappdemo1.LoginScreen;
+package com.example.NoteAppDemo1.LoginScreen;
 
 import android.os.Bundle;
 import android.util.Patterns;
@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.noteappdemo1.R;
+import com.example.NoteAppDemo1.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

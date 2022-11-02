@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.noteappdemo1'
+    namespace 'com.example.NoteAppDemo1'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.noteappdemo1"
+        applicationId "com.example.NoteAppDemo1"
         minSdk 21
         targetSdk 32
         versionCode 1

@@ -1,4 +1,4 @@
-package com.example.noteappdemo1.LoginScreen;
+package com.example.NoteAppDemo1.LoginScreen;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.noteappdemo1.MainActivity;
-import com.example.noteappdemo1.R;
+import com.example.NoteAppDemo1.MainActivity;
+import com.example.NoteAppDemo1.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -48,7 +48,6 @@ public class LoginActivity extends AppCompatActivity {
         if (!isvalidateData){
             return;
         }
-
         loginAccountisFireBase(email,password);
     }
 
@@ -60,12 +59,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 ChangeProgress(false);
                 if(task.isSuccessful()){
-                    //if (firebaseAuth.getCurrentUser().isEmailVerified()){
-                        doOpenMenu();
-                    //}else {
-                    //    Toast.makeText(LoginActivity.this,"Email not verified, Please verify your email",Toast.LENGTH_LONG).show();
-                    //}
-
+                        doOpenMain();
                 }else {
                     Toast.makeText(LoginActivity.this,task.getException().getLocalizedMessage(),Toast.LENGTH_LONG).show();
                 }
@@ -106,8 +100,9 @@ public class LoginActivity extends AppCompatActivity {
         Intent myIntent=new Intent(this, SigninActivity.class);
         startActivity(myIntent);
     }
-    public void doOpenMenu(){
+    public void doOpenMain(){
         Intent myIntent2=new Intent(this, MainActivity.class);
         startActivity(myIntent2);
+        finish();
     }
 }

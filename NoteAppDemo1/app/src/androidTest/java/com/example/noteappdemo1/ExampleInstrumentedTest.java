@@ -1,4 +1,4 @@
-package com.example.noteappdemo1;
+package com.example.NoteAppDemo1;
 
 import android.content.Context;
 

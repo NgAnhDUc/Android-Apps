@@ -1,7 +1,6 @@
-package com.example.noteappdemo1;
+package com.example.NoteAppDemo1;
 
 import android.content.Context;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.google.firebase.Timestamp;

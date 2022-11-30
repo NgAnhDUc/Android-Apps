@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Detail">
+
+    <TextView
+        android:id="@+id/tvBangtinh"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:text="Chi tiết Tác phẩm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textColor="@color/purple_500"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_centerHorizontal="true"
+        android:text="Tên Tác phẩm"
+        android:id="@+id/tvTenTacPham"
+        android:layout_below="@+id/tvBangtinh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="50dp"
+        android:layout_centerHorizontal="true"
+        android:text="mota"
+        android:id="@+id/tvMotaTacPham"
+        android:layout_below="@+id/tvTenTacPham"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnBackTacpham"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BACK" />
+</RelativeLayout>
